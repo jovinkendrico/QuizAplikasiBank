@@ -13,9 +13,6 @@ public class Nasabah {
         this.nomorRekening = nomorRekening;
     }
 
-    public Nasabah(Nasabah nasabah) {
-    }
-
     public boolean saldoTersedia(int jumlah){
         if(this.saldo >= jumlah){
             return true;

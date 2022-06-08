@@ -61,8 +61,7 @@ public class App {
                 }
                 clearScreen();
             }while(cekNomorRekening);
-            
-            
+
         }
     }
 
