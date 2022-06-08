@@ -35,21 +35,25 @@ public class App {
                                 System.out.println("=============================================================================");
                                 System.out.print("Masukkan nomor rekening tujuan = ");
                                 String nomorRekeningTujuan = scanner.next();
-                                if(nasabah.checkNasabah(arrayNasabah, nomorRekeningTujuan)){
-                                    System.out.println("=============================================================================");
-                                    System.out.print("Masukkan jumah uang yang ingin ditransfer = ");
-                                    int jumlah = scanner.nextInt();
-                                    if(nasabah.saldoTersedia(jumlah)){
-                                        nasabah.transferUang(jumlah, nomorRekeningTujuan, arrayNasabah);
+                                if(!nomorRekeningTujuan.equals(nasabah.getNomorRekening())){
+                                    if(nasabah.checkNasabah(arrayNasabah, nomorRekeningTujuan)){
+                                        System.out.println("=============================================================================");
+                                        System.out.print("Masukkan jumah uang yang ingin ditransfer = ");
+                                        int jumlah = scanner.nextInt();
+                                        if(nasabah.saldoTersedia(jumlah)){
+                                            nasabah.transferUang(jumlah, nomorRekeningTujuan, arrayNasabah);
+                                        }else{
+                                            System.out.println("=============================================================================");
+                                            System.out.println("Saldo tidak mencukupi");
+                                        }
                                     }else{
                                         System.out.println("=============================================================================");
-                                        System.out.println("Saldo tidak mencukupi");
+                                        System.out.println("Nomor Rekening tujuan tidak terdaftar di bank");
+                                        continue;
                                     }
                                 }else{
-                                    System.out.println("=============================================================================");
-                                    System.out.println("Nomor Rekening tujuan tidak terdaftar di bank");
-                                    continue;
-                                }
+                                    System.out.println("Kamu tidak bisa trasnfer diri sendiri!!!");
+                                }   
                             }else if(pilih == 2){
                                 nasabah.cetakMutasi();
                             }
